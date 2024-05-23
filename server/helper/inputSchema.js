@@ -5,8 +5,7 @@ const signUpSchema = Joi.object({
         .email()
         .required(),
 
-    password: Joi.string()
-        .pattern(new RegExp(`^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$`)).required(),
+    password: Joi.string().required(),
 
     profilePicture: Joi.string().optional(),
 
