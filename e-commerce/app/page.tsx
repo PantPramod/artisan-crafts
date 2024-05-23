@@ -1,11 +1,10 @@
 
 import dynamic from 'next/dynamic'
-import ProductList from '../components/other/ProductList'
-import ButtonGroups from '@/components/other/ButtonGroups'
 import BestSellers from '@/components/ui/BestSellers'
 import NewArrivals from '@/components/ui/NewArrivals'
 import Categories from '@/components/other/Categories'
 import Subscription from '@/components/ui/Subscription'
+import FeaturedProducts from '@/components/other/FeaturedProducts'
 
 
 const ReactCarousal = dynamic(() => import('@/components/other/ReactCarousal'), {
@@ -18,9 +17,9 @@ export default function Home() {
   return (<>
     <main className="">
       <ReactCarousal />
-      <ButtonGroups />
-      <ProductList />
+      <FeaturedProducts />
       <Categories />
+      
       <BestSellers />
       <NewArrivals />
       <Subscription />

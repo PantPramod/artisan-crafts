@@ -4,6 +4,7 @@ import ProductCard from "../ui/ProductCard"
 import productCardData from "../ui/productCardsData"
 import useViewportSize from "@/hooks/useViewportSize";
 import axios from "axios";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 type productType = {
     _id: string
@@ -11,67 +12,100 @@ type productType = {
     price: number,
     imgUrl: string,
     topPrice: number,
-    category:string
+    category: string
 
 }
-const ProductList = () => {
+type propTypes = {
+    selected: "mostPopular" | "whatsNew" | "bestSeller"
+}
+const ProductList = ({ selected }: propTypes) => {
     const [scrolX, setScrolX] = useState(0)
     const size = useViewportSize()
+
 
     const [products, setProducts] = useState<any>([])
 
     useEffect(() => {
         (async () => {
             try {
-                const { data } = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/product/getproducts`)
+                const { data } = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/product/getproducts`,
+                    { params: { selected } }
+                )
                 setProducts([...data])
                 console.log(data)
             } catch (err) {
 
             }
         })()
-    }, [])
+    }, [selected])
+
+
+    useEffect(()=>{
+     if(size){
+        setScrolX(0)
+     }
+    },[size])
 
     const leftScroll = () => {
         setScrolX(scrolX > 0 ? prev => prev - 1 : prev => prev)
     }
     const rightScroll = () => {
         const length = productCardData.length
-        setScrolX(scrolX < length - (size == "xs" ?
-            1 :
-            size == "sm" ?
-                2 :
-                4) ?
-            prev => prev + 1 :
-            prev => prev)
-    }
+        let limit
+        if (size === "xs") {
+            limit = length / 1
+        }
+        else if (size === "sm") {
+            limit = length / 2
+        } else if (size === "md") {
+            limit = length / 3
+        } else {
+            limit = length / 4
+        }
+        limit = Math.floor(limit)
+        console.log(scrolX, limit)
+        setScrolX(scrolX < limit ? prev => prev + 1 : prev => prev)
 
+
+
+    }
+    console.log(scrolX)
     return (
         <>
             {size &&
-                <div className="relative max-w-screen overflow-x-hidden w-[90%] mx-auto">
+                <div className="relative max-w-[90%] overflow-x-hidden w-[100%] mx-auto">
                     <div
-                        style={{ width: `${size == "xs" ? productCardData.length * 100 : size == "sm" ? productCardData.length * 50 : productCardData.length * 25}%`, transform: `translateX(-${(scrolX / productCardData.length) * 100}%)` }}
+                        style={{ transform: `translateX(-${scrolX * 100}%)` }}
                         className={`flex items-center transition-all ease-in-out duration-300 `}
                     >
+
                         {
-                            products.map((productInfo:productType) => <ProductCard
+                            products.map((productInfo: productType) => <div
+                                key={productInfo._id}
+                                className="min-w-[100%]   sm:min-w-[50%] md:min-w-[33.333%] lg:min-w-[25%]   ">
+                                <ProductCard info={productInfo} key={productInfo._id}/>
+                            </div>)
+                        }
+
+                        {/* {
+                            products.slice(0, 25).map((productInfo: productType) => <ProductCard
                                 info={productInfo}
                                 key={productInfo._id}
                             />)
-                        }
+                        }  */}
                     </div>
                     <button
-                        className="absolute left-4 top-1/2 transform -translate-y-1/2 self-center shadow-md font-bold py-2 px-4 rounded-full  bg-gray-400"
+                        className="overflow-hidden absolute left-4 top-1/2 transform -translate-y-1/2 self-center shadow-md font-bold  rounded-full  bg-[#131212cc] w-10 h-10 flex items-center justify-center text-white"
                         onClick={leftScroll}
                     >
-                        &lt;
+                        <IoIosArrowBack size={22} />
                     </button>
                     <button
-                        className="absolute right-4 top-1/2 transform -translate-y-1/2  self-center  shadow-md font-bold py-2 px-4 rounded-full  bg-gray-400"
+                        className="absolute right-4 top-1/2 transform -translate-y-1/2  self-center  shadow-md font-bold rounded-full  bg-[#131212cc] text-white w-10 h-10 flex items-center justify-center"
                         onClick={rightScroll}
                     >
-                        &gt;
+                        <IoIosArrowForward size={22} />
+
                     </button>
                 </div>
 

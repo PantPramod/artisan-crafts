@@ -6,7 +6,7 @@ const signUpSchema = Joi.object({
         .required(),
 
     password: Joi.string()
-        .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')).required(),
+        .pattern(new RegExp(`^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$`)).required(),
 
     profilePicture: Joi.string().optional(),
 
@@ -17,14 +17,14 @@ const signUpSchema = Joi.object({
 })
 
 
+
 const loginSchema = Joi.object({
     email: Joi
         .string()
         .email()
         .required(),
 
-    password: Joi.string()
-        .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')).required(),
+    password: Joi.string().required(),
 })
 
 export { signUpSchema, loginSchema }

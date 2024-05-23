@@ -9,23 +9,24 @@ const NavigationItems = [
                 items: [
                     {
                         id: 1,
-                        title: "home decors",
+                        title: "Home Decor",
                         url: "home-decors"
                     },
                     {
                         id: 2,
-                        title: "wood working",
+                        title: "Art and Paints",
                         url: "wood-working",
                     },
                     {
                         id: 3,
-                        title: "ceremic",
+                        title: "Ceremics",
                         url: "ceremic"
                     },
 
                 ]
             },
             {
+                id:2,
                 heading: '',
                 items: [
                     {
@@ -40,12 +41,13 @@ const NavigationItems = [
                     },
                     {
                         id: 3,
-                        title: "Wood works",
+                        title: "Wood Works",
                         url: "soft-luggage"
                     }
                 ]
             },
             {
+                id:3,
                 heading: '',
                 items: [
                     {
@@ -96,6 +98,7 @@ const NavigationItems = [
                 ]
             },
             {
+                id:2,
                 heading: '',
                 items: [
                     {

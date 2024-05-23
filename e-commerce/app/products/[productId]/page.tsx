@@ -40,7 +40,7 @@ const page = ({ params }: any) => {
     }
     return (<>
         <div>
-            <p className='text-xs text-gray-700 px-10'>Home / {category} / {productData?.title}</p>
+            <p className='text-xs text-gray-700 px-10'>Home / products / {productData?.title}</p>
 
             <div className='flex '>
                 <div className='w-[45%] flex '>

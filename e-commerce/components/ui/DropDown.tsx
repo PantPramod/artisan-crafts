@@ -35,7 +35,7 @@ const Dropdown = ({ children, content }: propTypes) => {
                                     items.map(({ id, title, url }: { id: any, title: any, url: any }) => (<li className="py-2"
                                         key={id}
                                     >
-                                        <Link href={`/${url}`} className="text-blue-500 hover:underline ">
+                                        <Link href={`/products?category=${title}`} className="text-blue-500 hover:underline ">
                                             {title}
                                         </Link>
                                     </li>))

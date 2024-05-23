@@ -7,16 +7,17 @@ type propTypes = {
     fullWidth?: boolean
     px?: number
     py?: number
-    onClick?:any
+    onClick?: any
+
 }
 const Button = (props: propTypes) => {
+
+    const className = ` px-6 py-2 rounded-full  uppercase  font-bold hover:text-black hover:bg-white shadow-md cursor-pointer ${props.className}`
     return (<input
         type="button"
-        value="Set My Value"
-        className={clsx(`bg-black text-white px-6 py-2 rounded-full  uppercase  font-bold hover:text-black hover:bg-white shadow-md cursor-pointer `, props?.fullWidth && "w-full")}
-
-        {...props}
-
+        value={props.value}
+        className={className}
+        onClick={props.onClick}
     />)
 }
 

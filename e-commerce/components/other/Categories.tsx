@@ -3,7 +3,7 @@ import CategoriesData from './CategoriesData'
 import Link from 'next/link'
 
 const Categories = () => {
-    
+
     return (
         <div className="mt-20 w-[90%] mx-auto">
             <div className='block sm:inline-block'>
@@ -14,7 +14,7 @@ const Categories = () => {
             <div className='flex flex-wrap gap-x-4 sm:justify-between items-center justify-center gap-y-10'>
                 {
                     CategoriesData.map(({ id, imageUrl, name }) => <Link
-                        href={`/${name.replaceAll(" ", "-")}`}
+                        href={`/products?category=${name}`}
                         key={id}
                         className=''
                     >

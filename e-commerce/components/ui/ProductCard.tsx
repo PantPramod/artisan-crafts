@@ -27,8 +27,10 @@ const ProductCard = ({ info: { _id, imgUrl, price, topPrice, title, category } }
    
     return (
         <div
-            onClick={() => router.push(`/${category}/${_id}`)}
-            className='w-full  group cursor-pointer p-2 sm:p-4 md:p-6'>
+            onClick={() => router.push(`/products/${_id}`)}
+            className='w-full  group cursor-pointer  p-2 md:p-4 '
+            
+            >
             <div className='relative'>
                 <span className='z-[999] bg-white  rounded-full w-[30px] h-[30px]  flex items-center justify-center shadow-md absolute top-2 right-2 cursor-pointer hover:bg-gray-300'>
                     <FaHeart className="text-[#8f8c8c]" />
@@ -50,7 +52,7 @@ const ProductCard = ({ info: { _id, imgUrl, price, topPrice, title, category } }
 
             <Button
                 value="Add To Cart"
-                fullWidth
+                className='w-full bg-black text-white'
                 onClick={(e: Event) => { e.stopPropagation(); addToCartHandler(_id, 1) }}
             />
 

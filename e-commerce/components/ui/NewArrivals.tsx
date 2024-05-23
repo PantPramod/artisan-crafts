@@ -3,14 +3,14 @@ import React from 'react'
 
 const NewArrivals = () => {
     return (
-        <div className='mt-10   relative w-[90%] mx-auto'>
+        <div className='mt-20 pt-10   relative w-[90%] mx-auto'>
             <img
                 src="https://source.unsplash.com/500x500/?handmade,product7"
                 alt=""
                 className='w-full sm:w-[60%] max-h-[80vh] object-cover'
             />
             <div className='z-[99] max-w-[510px]  bg-white sm:p-6 sm:py-8  sm:absolute sm:top-[55%] sm:left-[55%] sm:-translate-y-1/2'>
-                <div className='block sm:inline-block'>
+                <div className='block sm:inline-block mt-14 sm:mt-0'>
                     <h1 className=' text-3xl font-bold block mx-auto text-center sm:text-left sm:inline-block'>New Arrivals</h1>
                     <div className='mt-2 bg-gradient-to-r from-red-500 to-orange-500 h-[10px] rounded-full w-[50px] sm:w-1/2 mx-auto sm:mx-[unset]'></div>
                 </div>

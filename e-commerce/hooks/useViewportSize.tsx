@@ -30,9 +30,12 @@ const getViewportSize = () => {
     } else if (width < 768) {
       console.log('sm')
       return 'sm';
-    } else {
+    } else if(width<1023){
       console.log('md')
       return 'md';
+    }else{
+      console.log('lg')
+      return 'lg';
     }
   }
   return ''

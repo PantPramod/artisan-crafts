@@ -8,7 +8,7 @@ import loginHandler from '../controllers/user/loginHandler.js'
 import refresh from '../controllers/user/refresh.js'
 import forgotPasswordHandler from '../controllers/user/forgotPasswordHandler.js'
 import resetPasswordHandler from '../controllers/user/resetPasswordHandler.js'
-import getProducts from '../controllers/product/getProducts.js'
+import getProducts, { getProductFilter } from '../controllers/product/getProducts.js'
 import Product from '../models/product.js'
 import sampleData from '../data/sampleData.js'
 import getCartData from '../controllers/cart/getCartData.js'
@@ -44,6 +44,8 @@ router.get("/product/insertmany", async (req, res) => {
     const response = await Product.insertMany(sampleData)
     res.json(response)
 })
+
+router.get("/product/filter", getProductFilter)
 
 
 router.get("/categories", getAllCategories)
