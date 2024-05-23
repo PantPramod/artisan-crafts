@@ -28,6 +28,10 @@ app.use(limiter)
 
 app.use('/', allRoutes)
 
+app.get('/',(req, res)=>{
+	res.send('Welcome to the API')
+})
+
 app.use(errorHandler)
 
 app.listen(PORT, () => {
