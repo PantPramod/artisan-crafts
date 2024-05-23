@@ -1,5 +1,5 @@
 'use client'
-import { productType } from '@/app/[slug]/[productId]/page'
+import { productType } from '@/app/products/[productId]/page'
 import { usePathname, useRouter } from 'next/navigation'
 import React from 'react'
 import useCart from '../CartContext/useCart'

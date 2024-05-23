@@ -14,7 +14,7 @@ const NewArrivals = () => {
                     <h1 className=' text-3xl font-bold block mx-auto text-center sm:text-left sm:inline-block'>New Arrivals</h1>
                     <div className='mt-2 bg-gradient-to-r from-red-500 to-orange-500 h-[10px] rounded-full w-[50px] sm:w-1/2 mx-auto sm:mx-[unset]'></div>
                 </div>
-                <p className='text-sm my-3 text-center sm:text-left'>hop American Tourister's best-sellers online. Discover the most popular, top-rated travel gear handpicked by American Tourister fans!</p>
+                <p className='text-sm my-3 text-center sm:text-left'>hop American Tourister&apos;s best-sellers online. Discover the most popular, top-rated travel gear handpicked by American Tourister fans!</p>
                 <button className='shadow-lg  rounded-full px-6 py-2 text-xl font-bold mx-auto sm:mx-[unset] block'>Shop Now</button>
             </div>
         </div>

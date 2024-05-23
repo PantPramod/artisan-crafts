@@ -14,7 +14,7 @@ export type productType = {
     imgUrl: string
 
 }
-const page = ({ params }: any) => {
+const Page = ({ params }: any) => {
     const [productData, setProductData] = useState<productType>({} as productType)
     const { productId, slug: category } = params
     const { addToCartHandler } = useCart()
@@ -119,4 +119,4 @@ const page = ({ params }: any) => {
     )
 }
 
-export default page
+export default Page
