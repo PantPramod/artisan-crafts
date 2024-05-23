@@ -39,3 +39,4 @@ app.listen(PORT, () => {
     connectDB(DB_URL)
 })
 
+export default app
